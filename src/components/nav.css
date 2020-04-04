@@ -1,0 +1,30 @@
+.Navbar{
+  height: 50px;
+  top: 0;
+  position: fixed;
+  z-index: 100000;
+  width: 100%;
+  display: flex;
+  background: #292c2f;
+  align-items: center;
+}
+.Navbar a{
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  margin: 20px;
+  margin-left: 10px;
+}
+.Navbar a:hover{
+  color: white;
+  margin-bottom:25px; 
+  transition:.1s;
+}
+.link{
+  color: white;
+  text-decoration: none;
+}
+.link:hover{
+  color: white;
+  text-decoration: none;
+}
