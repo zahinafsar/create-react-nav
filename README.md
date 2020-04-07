@@ -12,12 +12,12 @@ npm install create-react-nav
 
 ## Usages
 
-## Step-1 (Import the Library)
+>> Step-1 (Import the Library)
 
 ```javascript
 import Navbar from 'create-react-nav/nav/<...nav_name....>';
 ```
-## Step-2 (Use the Component)
+>> Step-2 (Use the Component)
 
 ```javascript
 <Navbar links={[
@@ -29,7 +29,7 @@ import Navbar from 'create-react-nav/nav/<...nav_name....>';
 ```
 ## Styling (optional)
 
-## Add Nav Style
+>> Add Nav Style
 
 ```javascript
 <Navbar navBarStyle={<...style...>} links={[
@@ -39,7 +39,7 @@ import Navbar from 'create-react-nav/nav/<...nav_name....>';
   ]}
 />
 ```
-## Add Nav Items Style
+>> Add Nav Items Style
 
 ```javascript
 <Navbar navItemStyle={<...style...>} links={[
@@ -49,7 +49,7 @@ import Navbar from 'create-react-nav/nav/<...nav_name....>';
   ]}
 />
 ```
-## Add Logo Img
+>> Add Logo Img
 
 ```javascript
 <Navbar logoImg="<...source...>" links={[
@@ -59,7 +59,7 @@ import Navbar from 'create-react-nav/nav/<...nav_name....>';
   ]}
 />
 ```
-## Add Text Logo
+>> Add Text Logo
 
 ```javascript
 <Navbar logoTxt="<...name...>" links={[
@@ -69,7 +69,7 @@ import Navbar from 'create-react-nav/nav/<...nav_name....>';
   ]}
 />
 ```
-## Add Text Logo Style
+>> Add Text Logo Style
 
 ```javascript
 <Navbar logoTxt="<...name...>" textStyle={<...style...>} links={[
@@ -136,7 +136,7 @@ return (
 export default App;
 
 ```
-## Note : [``This will not work outside or without the BrowserRouter``]
+## Note : ```[This will not work outside or without the BrowserRouter]```
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
