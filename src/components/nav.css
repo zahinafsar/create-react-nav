@@ -5,9 +5,9 @@
   z-index: 100000;
   width: 100%;
   display: flex;
-  direction: rtl;
   background: #292c2f;
   align-items: center;
+  justify-content: flex-end;
 }
 .Navbar a{
   position: relative; 
@@ -15,7 +15,6 @@
   color: white;
   font-family: monospace;
   margin: 20px;
-  margin-left: 10px;
   text-decoration: none;
 }
 .Navbar a:hover{
@@ -25,9 +24,9 @@
 .all:after {
   position: absolute;
   content: '';
-  height: 4px;
+  height: 2px;
   border-radius: 15px;
-  bottom: -16px;
+  bottom: -14px;
   margin: 0 auto;
   left: 0;
   right: 0;
@@ -39,30 +38,54 @@
   width: 100%;
 }
 .trigger{
-  display: none;
-}
-
-@media only screen and (max-width: 600px) {
-  .trigger{
+  position: fixed;
   transition: 1s;
-  display: block;
+  display: none;
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 15px;
+  left: 15px;
   z-index: 100000000;
+}
+.Navbar img{
+  height: 40px;
+  position: fixed;
+  left: 40px;
+  z-index: 100000000;
+}
+.Navbar span{
+  font-size: 35px;
+  position: fixed;
+  left: 40px;
+  z-index: 100000000;
+  font-weight: bold;
+  color: green;
+  top:0px;
+}
+@media only screen and (max-width: 700px) {
+  .trigger{
+    display: block;
   }
   .Navbar{
+    padding-top: 55px;
     top:-100%;
     flex-direction: column;
     height:100%;
     transition: 1s;
+    justify-content: flex-start;
+  }
+  .Navbar img{
+    left: auto;
+    top: 7px;
+  }
+  .Navbar span{
+    left: auto;
+    top: 2px;
   }
   .all:after {
   height: 0px;
   }
   .selected{
-   background-color:#505050;
-   box-shadow : inset 0 0 10px #9e9e9e;
+   background-color:black;
   }
   .Navbar a{
     padding: 10px 100%;

@@ -10,38 +10,71 @@ Use the package manager [npm](https://www.npmjs.com/) to install create-react-na
 npm install create-react-nav
 ```
 
-## Usage
-## Step-1 (Import the library)
+## Usages
+
+## Step-1 (Import the Library)
 
 ```javascript
-import Navbar from 'creat-react-nav/nav/<...nav_name....>';
+import Navbar from 'create-react-nav/nav/<...nav_name....>';
 ```
 ## Step-2 (Use the Component)
 
 ```javascript
 <Navbar links={[
-  {'link':"<...link_path...>",'title':"<...nav_title...>"},
-  {'link':"<...link_path...>",'title':"<...nav_title...>"},
+  [ "<...link_path...>" , "<...nav_title...>" ],
+  [ "<...link_path...>" , "<...nav_title...>" ],
   ...................................
   ]}
 />
 ```
-## Step-2 (Add nav style)-optional
+## Styling (optional)
+
+## Add Nav Style
 
 ```javascript
 <Navbar navBarStyle={<...style...>} links={[
-  {'link':"<...link_path...>",'title':"<...nav_title...>"},
-  {'link':"<...link_path...>",'title':"<...nav_title...>"},
+  [ "<...link_path...>" , "<...nav_title...>" ],
+  [ "<...link_path...>" , "<...nav_title...>" ],
   ...................................
   ]}
 />
 ```
-## Step-2 (Add nav items style)-optional
+## Add Nav Items Style
 
 ```javascript
 <Navbar navItemStyle={<...style...>} links={[
-  {'link':"<...link_path...>",'title':"<...nav_title...>"},
-  {'link':"<...link_path...>",'title':"<...nav_title...>"},
+  [ "<...link_path...>" , "<...nav_title...>" ],
+  [ "<...link_path...>" , "<...nav_title...>" ],
+  ...................................
+  ]}
+/>
+```
+## Add Logo Img
+
+```javascript
+<Navbar logoImg="<...source...>" links={[
+  [ "<...link_path...>" , "<...nav_title...>" ],
+  [ "<...link_path...>" , "<...nav_title...>" ],
+  ...................................
+  ]}
+/>
+```
+## Add Text Logo
+
+```javascript
+<Navbar logoTxt="<...name...>" links={[
+  [ "<...link_path...>" , "<...nav_title...>" ],
+  [ "<...link_path...>" , "<...nav_title...>" ],
+  ...................................
+  ]}
+/>
+```
+## Add Text Logo Style
+
+```javascript
+<Navbar logoTxt="<...name...>" textStyle={<...style...>} links={[
+  [ "<...link_path...>" , "<...nav_title...>" ],
+  [ "<...link_path...>" , "<...nav_title...>" ],
   ...................................
   ]}
 />
@@ -50,9 +83,12 @@ import Navbar from 'creat-react-nav/nav/<...nav_name....>';
 
 | Api | Type | Description |
 |-------|-----------| ---------------------|
-| links |Object| Required two properties,first one is the link of file path and the second one is the title for the page  |
-| navBarStyle | Object | This refers a style for the main div of the navbar |
-| navItemStyle | Object | This refers a style for eatch item of the navbar |
+| links | Array of multiple Array | Required two properties,first one is the link of file path and the second one is the title for the page  |
+| navBarStyle | Object | Defines the style for the Navbar |
+| navItemStyle | Object | Defines the style for eatch item of the Navbar |
+| logoImg | String | Address of you logo |
+| logoTxt | String | Text logo this basically refers your website name |
+| textStyle | Object | Defines the style of the text logo |
 
 ## Example
 
@@ -64,7 +100,7 @@ import Skills from './files/skills';
 import About from './files/about';
 import Contact from './files/contact';
 import Project from './files/project';
-import Navbar from 'creat-react-nav/nav/navSnack';
+import Navbar from 'create-react-nav/nav/navSnack';
 
 const App=()=>{
   const nav = {
@@ -73,14 +109,17 @@ const App=()=>{
   const item = {
     color: 'blue'
   }
+  const text = {
+    color: 'red'
+  }
 return (
 <Router>
-    <Navbar navBarStyle={nav} navItemStyle={item} links={[
-      {'link':"/",'title':"Home"},
-      {'link':"/about",'title':"About"},
-      {'link':"/skills",'title':"Skills"},
-      {'link':"/project",'title':"Projects"},
-      {'link':"/contact",'title':"Contact"}
+    <Navbar logoTxt="hello" textStyle={text} navBarStyle={nav} navItemStyle={item} links={[
+      ["/","Home"],
+      ["/about","About"],
+      ["/skills","Skills"],
+      ["/project","Projects"],
+      ["/contact","Contact"]
     ]}/>
 
     <Switch>
@@ -97,6 +136,7 @@ return (
 export default App;
 
 ```
+## Note : [``This will not work outside or without the BrowserRouter``]
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
