@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = props => {
   var trig = true;
-  var triggerHeight = window.innerHeight - 50;
   const value = props.links;
   var navStyle;
   var itemStyle;
@@ -46,20 +45,35 @@ const Navbar = props => {
   }
 
   const trigger = () => {
-    if (trig) {
-      document.querySelector(".Navbar").style.top = "0";
-      document.querySelector(".trigger").style.top = triggerHeight + "px";
-      trig = false;
-    } else {
-      document.querySelector(".Navbar").style.top = "-100%";
-      document.querySelector(".trigger").style.top = "15px";
-      trig = true;
+    if (window.innerWidth < 700) {
+      if (trig) {
+        document.querySelector(".Navbar").style.left = "0";
+        trig = false;
+      } else {
+        document.querySelector(".Navbar").style.left = "-100%";
+        trig = true;
+      }
     }
   };
 
   return (
     /*#__PURE__*/
     React.createElement(React.Fragment, null,
+    /*#__PURE__*/
+    React.createElement("div", {
+      className: "Navbar2",
+      style: navStyle
+    },
+    /*#__PURE__*/
+    React.createElement("img", {
+      alt: "logo",
+      style: displayimg,
+      src: props.logoImg
+    }),
+    /*#__PURE__*/
+    React.createElement("span", {
+      style: displaytxt
+    }, props.logoTxt)),
     /*#__PURE__*/
     React.createElement("div", {
       onClick: trigger,
@@ -77,19 +91,10 @@ const Navbar = props => {
     React.createElement("div", {
       className: "Navbar",
       style: navStyle
-    },
-    /*#__PURE__*/
-    React.createElement("img", {
-      alt: "logo",
-      style: displayimg,
-      src: props.logoImg
-    }),
-    /*#__PURE__*/
-    React.createElement("span", {
-      style: displaytxt
-    }, props.logoTxt), value.map(u =>
+    }, value.map(u =>
     /*#__PURE__*/
     React.createElement(NavLink, {
+      onClick: trigger,
       key: u[1],
       activeClassName: "selected",
       className: "all",

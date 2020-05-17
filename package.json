@@ -1,6 +1,6 @@
 {
   "name": "create-react-nav",
-  "version": "2.1.8",
+  "version": "2.3.0",
   "private": false,
   "babel": {
     "presets": [
@@ -9,9 +9,7 @@
   },
   "dependencies": {
     "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.1.1"
+    "react-router-dom": "^5.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,7 +35,9 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/preset-react": "^7.9.4"
+    "@babel/preset-react": "^7.9.4",
+    "react-dom": "^16.9.0",
+    "react-scripts": "3.1.1"
   },
   "keywords": [
     "navigation",
