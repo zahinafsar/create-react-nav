@@ -1,6 +1,10 @@
 import React from 'react';
 import './nav.css';
 import {NavLink} from 'react-router-dom';
+import o from './icon/o/0White.png'
+import ob from './icon/o/0Black.png'
+import l from './icon/-/-White.png'
+import lb from './icon/-/-Black.png'
 
 const Navbar =(props)=>{
 
@@ -10,6 +14,19 @@ const Navbar =(props)=>{
       var itemStyle;
       var displayimg={"display":"none"};
       var displaytxt={"display":"none"};
+      var logo;
+
+      if (props.triggerIcon === undefined || props.triggerIcon === "whiteCircle") {
+        logo = o;
+      } else if (props.triggerIcon === "blackCircle") {
+        logo = ob;
+      }else if (props.triggerIcon === "whiteLine") {
+        logo = l;
+      }else if (props.triggerIcon === "blackLine") {
+        logo = lb;
+      }else{
+        logo = props.triggerIcon;
+      }
 
       if (props.logoImg !== undefined ) {
           displayimg={
@@ -28,8 +45,8 @@ const Navbar =(props)=>{
         navStyle = props.navBarStyle;
       }
 
-      if (props.textStyle !== undefined ) {
-        displaytxt={...displaytxt,...props.textStyle}
+      if (props.logoTxtStyle !== undefined ) {
+        displaytxt={...displaytxt,...props.logoTxtStyle}
       }
 
       if (props.navItemStyle === undefined ) {
@@ -56,7 +73,7 @@ const Navbar =(props)=>{
         <img alt="logo" style={displayimg} src={props.logoImg}/>
         <span style={displaytxt}>{props.logoTxt}</span>
         </div>
-        <div onClick={trigger} className="trigger"><img style={{'position':'fixed'}} alt="nav" src="https://img.icons8.com/office/26/000000/menu.png"/></div>
+        <div onClick={trigger} className="trigger"><img style={{'position':'fixed'}} alt="nav" src={logo}/></div>
         <div className ="Navbar" style={navStyle}>
         {value.map(u => (
                 <NavLink

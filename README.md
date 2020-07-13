@@ -15,69 +15,49 @@ npm install create-react-nav
 ### Step-1 (Import the Library)
 
 ```javascript
-import Navbar from 'create-react-nav/nav/<...nav_name....>';
+import Navbar from 'create-react-nav/nav/...NAV_NAME...';
 ```
 ### Step-2 (Use the Component)
 
 ```javascript
-<Navbar links={[
-  [ "<...link_path...>" , "<...nav_title...>" ],
-  [ "<...link_path...>" , "<...nav_title...>" ],
-  ...................................
-  ]}
-/>
+const routes = [
+  [ "...ROUTER_PATH..." , "...PAGE_NAME..." ],
+  [ "...ROUTER_PATH..." , "...PAGE_NAME..." ]
+];
+
+<Navbar links={routes}/>
 ```
 ## Styling (optional)
 
 ### Add Nav Style
 
 ```javascript
-<Navbar navBarStyle={<...style...>} links={[
-  [ "<...link_path...>" , "<...nav_title...>" ],
-  [ "<...link_path...>" , "<...nav_title...>" ],
-  ...................................
-  ]}
-/>
+<Navbar navBarStyle={...YOUR_CUSTOM_STYLE_FOR_NAV_BAR...} links={routes}/>
 ```
 ### Add Nav Items Style
 
 ```javascript
-<Navbar navItemStyle={<...style...>} links={[
-  [ "<...link_path...>" , "<...nav_title...>" ],
-  [ "<...link_path...>" , "<...nav_title...>" ],
-  ...................................
-  ]}
-/>
+<Navbar navItemStyle={...YOUR_CUSTOM_STYLE_FOR_NAV_ITEMS...} links={routes}/>
 ```
-### Add Logo Img
+### Add Trigger Icon
 
 ```javascript
-<Navbar logoImg="<...source...>" links={[
-  [ "<...link_path...>" , "<...nav_title...>" ],
-  [ "<...link_path...>" , "<...nav_title...>" ],
-  ...................................
-  ]}
-/>
+<Navbar triggerIcon="blackCircle" links={routes}/>
+```
+### Add Logo Image
+
+```javascript
+<Navbar logoImg="...SOURCE_PATH_OF_YOUR_LOGO..." links={routes}/>
 ```
 ### Add Text Logo
 
 ```javascript
-<Navbar logoTxt="<...name...>" links={[
-  [ "<...link_path...>" , "<...nav_title...>" ],
-  [ "<...link_path...>" , "<...nav_title...>" ],
-  ...................................
-  ]}
-/>
+<Navbar logoTxt="...USE_ANY_TEXT_AS_LOGO..." links={routes}/>
 ```
 ### Add Text Logo Style
 
 ```javascript
-<Navbar logoTxt="<...name...>" textStyle={<...style...>} links={[
-  [ "<...link_path...>" , "<...nav_title...>" ],
-  [ "<...link_path...>" , "<...nav_title...>" ],
-  ...................................
-  ]}
-/>
+<Navbar logoTxt="...USE_ANY_TEXT_AS_LOGO..." logoTxtStyle={...YOUR_CUSTOM_STYLE_FOR_TEXT_LOGO...} links={routes}/>
 ```
 ## Api
 
@@ -86,20 +66,29 @@ import Navbar from 'create-react-nav/nav/<...nav_name....>';
 | links | Array of multiple Array | Required two properties,first one is the link of file path and the second one is the title for the page  |
 | navBarStyle | Object | Defines the style for the Navbar |
 | navItemStyle | Object | Defines the style for eatch item of the Navbar |
+| triggerIcon | String | Icon of navigaton bar trigger |
 | logoImg | String | Address of you logo |
 | logoTxt | String | Text logo this basically refers your website name |
-| textStyle | Object | Defines the style of the text logo |
+| logoTxtStyle | Object | Defines the style of the text logo |
+
+## Trigger Icons
+
+### Some integrated Trigger Icon
+
+ * whiteCircle
+ * BlackCircle
+ * whiteLine
+ * blackLine
+
+>Note : You Can Use Your Own Custom Icon By Adding The Source
 
 ## Example
 
 ```javascript
 import Reactfrom 'react';
-import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 import Home from './files/home';
-import Skills from './files/skills';
 import About from './files/about';
-import Contact from './files/contact';
-import Project from './files/project';
 import Navbar from 'create-react-nav/nav/navSnack';
 
 const App=()=>{
@@ -112,24 +101,14 @@ const App=()=>{
   const text = {
     color: 'red'
   }
-return (
-<Router>
-    <Navbar logoTxt="hello" textStyle={text} navBarStyle={nav} navItemStyle={item} links={[
+  const routes = [
       ["/","Home"],
-      ["/about","About"],
-      ["/skills","Skills"],
-      ["/project","Projects"],
-      ["/contact","Contact"]
-    ]}/>
-
-    <Switch>
-      <Route exact path="/" component={Home}/>
-      <Route path="/skills" component={Skills}/>
-      <Route path="/project" component={Project}/>
-      <Route path="/about" component={About}/>
-      <Route path="/contact" component={Contact}/>
-    </Switch>
-</Router>
+      ["/about","About"]
+    ]
+return (
+<BrowserRouter>
+    <Navbar logoTxt="hello" logoTxtStyle={text} navBarStyle={nav} navItemStyle={item} links={routes}/>
+</BrowserRouter>
  );
 }
 

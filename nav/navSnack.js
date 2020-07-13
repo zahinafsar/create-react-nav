@@ -1,6 +1,10 @@
 import React from 'react';
 import './nav.css';
 import { NavLink } from 'react-router-dom';
+import o from './icon/o/0White.png';
+import ob from './icon/o/0Black.png';
+import l from './icon/-/-White.png';
+import lb from './icon/-/-Black.png';
 
 const Navbar = props => {
   var trig = true;
@@ -13,6 +17,19 @@ const Navbar = props => {
   var displaytxt = {
     "display": "none"
   };
+  var logo;
+
+  if (props.triggerIcon === undefined || props.triggerIcon === "whiteCircle") {
+    logo = o;
+  } else if (props.triggerIcon === "blackCircle") {
+    logo = ob;
+  } else if (props.triggerIcon === "whiteLine") {
+    logo = l;
+  } else if (props.triggerIcon === "blackLine") {
+    logo = lb;
+  } else {
+    logo = props.triggerIcon;
+  }
 
   if (props.logoImg !== undefined) {
     displayimg = {
@@ -32,9 +49,9 @@ const Navbar = props => {
     navStyle = props.navBarStyle;
   }
 
-  if (props.textStyle !== undefined) {
+  if (props.logoTxtStyle !== undefined) {
     displaytxt = { ...displaytxt,
-      ...props.textStyle
+      ...props.logoTxtStyle
     };
   }
 
@@ -85,7 +102,7 @@ const Navbar = props => {
         'position': 'fixed'
       },
       alt: "nav",
-      src: "https://img.icons8.com/office/26/000000/menu.png"
+      src: logo
     })),
     /*#__PURE__*/
     React.createElement("div", {
