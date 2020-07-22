@@ -8,9 +8,8 @@
   background: #292c2f;
   align-items: center;
   justify-content: flex-end;
+  box-shadow: 0px 4px 15px #0404047d;
 }
-
-
 .Navbar a{
   position: relative; 
   font-size: 18px;
@@ -23,7 +22,7 @@
   color: white; 
   transition:.5s;
 }
-.all:after {
+.NavItems:after {
   position: absolute;
   content: '';
   height: 3px;
@@ -41,18 +40,17 @@
 }
 .trigger{
   position: fixed;
-  transition: 1s;
+  transition: .1s;
   display: none;
-  position: absolute;
-  top: 12px;
-  left: 15px;
   z-index: 100000000;
+  height: 50px
 }
 .Navbar2 img{
-  top:3px;
-  height: 40px;
-  position: fixed;
-  left: 40px;
+  height: 30px;
+  position: relative;
+  margin-left: 30px;
+  margin-top: auto;
+  margin-bottom: auto;
   z-index: 100000000;
 }
 .Navbar2 span{
@@ -64,24 +62,36 @@
   color: green;
   top:0px;
 }
+.Navbar2{
+  height: 50px;
+  display: flex;
+  position: fixed;
+  z-index: 9999999;
+}
 @media only screen and (max-width: 700px) {
   .trigger{
-    display: block;
+    display: flex;
+  }
+  .trigger img{
+    position: relative;
+    margin-left: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .trigger:hover{
+    transform: scale(.9);
   }
   .Navbar2{
-  height: 50px;
-  z-index: 9999999;
-  width: 100%;
-  position: fixed;
-  display: flex;
-  top: 0;
-  background: #292c2f;
-  justify-content: center;
+    width: 100%;
+    top: 0;
+    background: #292c2f;
+    justify-content: center;
+    box-shadow: 0px 4px 15px #0404047d;
   }
   .Navbar{
     width: 40%;
-    padding-top: 55px;
     left:-100%;
+    padding-top: 55px;
     flex-direction: column;
     height:100%;
     transition: 1s;
@@ -89,16 +99,14 @@
   }
   .Navbar2 img{
     left: auto;
-    top: 7px;
   }
   .Navbar2 span{
     left: auto;
-    top: 0px;
   }
-  .all:after {
+  .NavItems:after {
   height: 0px;
   }
-  .all{
+  .NavItems{
     text-align: center;
     background-color: transparent;
   }

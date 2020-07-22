@@ -10,71 +10,70 @@ const Navbar =(props)=>{
 
       var trig = true;
       const value = props.links;
-      var navStyle;
-      var itemStyle;
-      var displayimg={"display":"none"};
-      var displaytxt={"display":"none"};
-      var logo;
+      var displaytxt;
+      var triggerIcon;
+      var logoImg = false;
+      var logoTxt = false;
 
       if (props.triggerIcon === undefined || props.triggerIcon === "whiteCircle") {
-        logo = o;
+        triggerIcon = o;
       } else if (props.triggerIcon === "blackCircle") {
-        logo = ob;
+        triggerIcon = ob;
       }else if (props.triggerIcon === "whiteLine") {
-        logo = l;
+        triggerIcon = l;
       }else if (props.triggerIcon === "blackLine") {
-        logo = lb;
+        triggerIcon = lb;
       }else{
-        logo = props.triggerIcon;
+        triggerIcon = props.triggerIcon;
       }
 
       if (props.logoImg !== undefined ) {
-          displayimg={
-        "display":"block"
-          }
+          logoImg = true;
       }
       if (props.logoTxt !== undefined ) {
-          displaytxt={
-        "display":"block"
-          }
-      }
-
-      if (props.navBarStyle === undefined ) {
-        navStyle = undefined;
-      }else{
-        navStyle = props.navBarStyle;
+          logoTxt = true;
       }
 
       if (props.logoTxtStyle !== undefined ) {
-        displaytxt={...displaytxt,...props.logoTxtStyle}
-      }
-
-      if (props.navItemStyle === undefined ) {
-        itemStyle = undefined;
-      }else{
-        itemStyle = props.navItemStyle;
+        displaytxt = props.logoTxtStyle
       }
 
       const trigger=()=>{
+      var navWidth = document.querySelector(".Navbar");
         if (window.innerWidth < 700) {
-        if (trig) {
-        document.querySelector(".Navbar").style.left = "0";
-        trig = false;
-        }else{
-        document.querySelector(".Navbar").style.left = "-100%";
-        trig = true;
+          if (trig) {
+            navWidth.style.left = "0";
+            trig = false;
+          }else{
+            navWidth.style.left = "-100%";
+            trig = true;
+          }
         }
+        
       }
-      }
+
+      window.addEventListener('resize', ()=>{
+        var navWidth = document.querySelector(".Navbar");
+        if (navWidth.style.left === "-100%" && window.innerWidth > 700) {
+            navWidth.style.left = "0px";
+        }
+        if (window.innerWidth < 700 && navWidth.style.left === "0px") {
+            navWidth.style.left = "-100%";
+        }
+      })
       
       return (
         <React.Fragment>
-        <div className="Navbar2" style={navStyle}>
-        <img alt="logo" style={displayimg} src={props.logoImg}/>
-        <span style={displaytxt}>{props.logoTxt}</span>
+
+        <div className="Navbar2 navbar">
+            {logoImg ? <img alt="logo" src={props.logoImg}/> :""}
+            {logoTxt ? <span style={displaytxt}>{props.logoTxt}</span> : ""}
         </div>
-        <div onClick={trigger} className="trigger"><img style={{'position':'fixed'}} alt="nav" src={logo}/></div>
-        <div className ="Navbar" style={navStyle}>
+        <div onClick={trigger} className="trigger">
+            <img alt="nav" src={triggerIcon}/>
+        </div>
+        
+        <div className ="Navbar navbar">
         {value.map(u => (
                 <NavLink
 
@@ -84,9 +83,7 @@ const Navbar =(props)=>{
 
                     activeClassName="selected"
 
-                    className="all"
-
-                    style={itemStyle}
+                    className="NavItems"
 
                     exact
 
@@ -96,6 +93,7 @@ const Navbar =(props)=>{
                 </NavLink>
             ))}
         </div>
+
         </React.Fragment>
      )
 }

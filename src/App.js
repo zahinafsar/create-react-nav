@@ -1,4 +1,5 @@
 import React from 'react';
+import './app.css';
 import {BrowserRouter as Router} from 'react-router-dom';
 import Navbar from './components/navSnack'
 import o from './icon/o/0White.png'
@@ -18,12 +19,12 @@ const App=()=>{
     ]
 return (
 <Router>
-    <Navbar logoTxt="zahin" logoTxtStyle={{color:"green"}} triggerIcon="whiteLine" links={r}/>
+    <Navbar logoTxt="zahin" triggerIcon={_} links={r}/>
     <div>sdkfcghksugngl</div><br/>
     <div>sdkfcghksugngl</div><br/>
     <div>sdkfcghksugngl</div><br/>
     <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
+    <div>sdkfcghksserrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrugngl</div><br/>
     <div>sdkfcghksugngl</div><br/>
     <div>sdkfcghksugngl</div><br/>
     <div>sdkfcghksugngl</div><br/>

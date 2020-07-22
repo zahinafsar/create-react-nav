@@ -12,7 +12,7 @@
 /build
 README.md
 /public
-
+/src
 # misc
 .DS_Store
 .env.local

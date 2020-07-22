@@ -27,52 +27,14 @@ const routes = [
 
 <Navbar links={routes}/>
 ```
-## Styling (optional)
+## Basic Configuration (optional)
 
-### Add Nav Style
-
-```javascript
-<Navbar navBarStyle={...YOUR_CUSTOM_STYLE_FOR_NAV_BAR...} links={routes}/>
-```
-### Add Nav Items Style
-
-```javascript
-<Navbar navItemStyle={...YOUR_CUSTOM_STYLE_FOR_NAV_ITEMS...} links={routes}/>
-```
 ### Add Trigger Icon
+####This is the button which works as a trigger to open hidden navigation bar when you are using mobile or smaller devices.
 
 ```javascript
 <Navbar triggerIcon="blackCircle" links={routes}/>
 ```
-### Add Logo Image
-
-```javascript
-<Navbar logoImg="...SOURCE_PATH_OF_YOUR_LOGO..." links={routes}/>
-```
-### Add Text Logo
-
-```javascript
-<Navbar logoTxt="...USE_ANY_TEXT_AS_LOGO..." links={routes}/>
-```
-### Add Text Logo Style
-
-```javascript
-<Navbar logoTxt="...USE_ANY_TEXT_AS_LOGO..." logoTxtStyle={...YOUR_CUSTOM_STYLE_FOR_TEXT_LOGO...} links={routes}/>
-```
-## Api
-
-| Api | Type | Description |
-|-------|-----------| ---------------------|
-| links | Array of multiple Array | Required two properties,first one is the link of file path and the second one is the title for the page  |
-| navBarStyle | Object | Defines the style for the Navbar |
-| navItemStyle | Object | Defines the style for eatch item of the Navbar |
-| triggerIcon | String | Icon of navigaton bar trigger |
-| logoImg | String | Address of you logo |
-| logoTxt | String | Text logo this basically refers your website name |
-| logoTxtStyle | Object | Defines the style of the text logo |
-
-## Trigger Icons
-
 ### Some integrated Trigger Icon
 
  * whiteCircle
@@ -82,33 +44,73 @@ const routes = [
 
 >Note : You Can Use Your Own Custom Icon By Adding The Source
 
+### Add Logo Image
+#### This is your app logo which will appear on the top of the navigation bar
+
+```javascript
+<Navbar logoImg="...SOURCE_PATH_OF_YOUR_LOGO..." links={routes}/>
+```
+### Add Text Logo
+#### This is your app name which will appear on the top of the navigation bar
+
+```javascript
+<Navbar logoTxt="...USE_ANY_TEXT_AS_LOGO..." links={routes}/>
+```
+## Api
+
+| Api | Type | Description |
+|-------|-----------| ---------------------|
+| links | Array of multiple Array | Required two properties,first one is the link of file path and the second one is the title for the page  |
+| triggerIcon | String | Icon of navigaton bar trigger |
+| logoImg | String | Address of you logo |
+| logoTxt | String | Text logo this basically refers your website name |
+
+## Styling (optional) -- Under Development
+### Class Names to customize or over write the styles given from create-react-nav.
+
+| Class Name | Description |
+|-------|-----------|
+| .navbar | Style of the navigation bar |
+| .NavItems | Style of all the  links |
+| .selected | Style Of the active navigation link |
+| .navbar span | Style of Text logo |
+
+>Note : You may have to use !important for most of the style attribute.
+
+>Note : To change the style Of the active navigation link for mobile screen use the following code
+```css
+@media only screen and (max-width: 700px){
+  .selected{
+    .....
+  }
+}
+```
+
+
 ## Example
 
 ```javascript
 import Reactfrom 'react';
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Home from './files/home';
 import About from './files/about';
 import Navbar from 'create-react-nav/nav/navSnack';
 
 const App=()=>{
-  const nav = {
-    backgroundColor: 'red'
-  }
-  const item = {
-    color: 'blue'
-  }
-  const text = {
-    color: 'red'
-  }
+
   const routes = [
       ["/","Home"],
       ["/about","About"]
     ]
+
 return (
-<BrowserRouter>
-    <Navbar logoTxt="hello" logoTxtStyle={text} navBarStyle={nav} navItemStyle={item} links={routes}/>
-</BrowserRouter>
+  <BrowserRouter>
+      <Navbar logoTxt="hello" links={routes}/>
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route path="/about" component={About}/>
+      </Switch>
+  </BrowserRouter>
  );
 }
 
