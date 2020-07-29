@@ -51,13 +51,13 @@ const routes = [
 >Note : You Can Use Your Own Custom Icon By Adding The Source
 
 ### Add Logo Image
-#### This is your app logo which will appear on the top of the navigation bar
+##### This is your app logo which will appear on the top of the navigation bar
 
 ```javascript
 <Navbar logoImg="...SOURCE_PATH_OF_YOUR_LOGO..." links={routes}/>
 ```
 ### Add Text Logo
-#### This is your app name which will appear on the top of the navigation bar
+##### This is your app name which will appear on the top of the navigation bar
 
 ```javascript
 <Navbar logoTxt="...USE_ANY_TEXT_AS_LOGO..." links={routes}/>
@@ -71,7 +71,8 @@ const routes = [
 | logoImg | String | Address of you logo |
 | logoTxt | String | Text logo this basically refers your website name |
 
-## Styling (optional) -- Under Development
+
+## Styling (optional)
 ### Class Names to customize or over write the styles given from create-react-nav.
 
 | Class Name | Description |
@@ -87,6 +88,7 @@ const routes = [
 >Note : 
 >1. You may have to use "!important" keyword for most of the style attributes.
 >2. To change the style for mobile screen use max-width to 700px.
+
 
 
 ## Example (CSS)
