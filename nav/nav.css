@@ -45,7 +45,7 @@
   z-index: 100000000;
   height: 50px
 }
-.Navbar2 img{
+.Appbar img{
   height: 30px;
   position: relative;
   margin-left: 30px;
@@ -53,7 +53,7 @@
   margin-bottom: auto;
   z-index: 100000000;
 }
-.Navbar2 span{
+.Appbar span{
   font-size: 35px;
   position: fixed;
   left: 40px;
@@ -62,7 +62,7 @@
   color: green;
   top:0px;
 }
-.Navbar2{
+.Appbar{
   height: 50px;
   display: flex;
   position: fixed;
@@ -81,7 +81,7 @@
   .trigger:hover{
     transform: scale(.9);
   }
-  .Navbar2{
+  .Appbar{
     width: 100%;
     top: 0;
     background: #292c2f;
@@ -97,10 +97,10 @@
     transition: 1s;
     justify-content: flex-start;
   }
-  .Navbar2 img{
+  .Appbar img{
     left: auto;
   }
-  .Navbar2 span{
+  .Appbar span{
     left: auto;
   }
   .NavItems:after {

@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import './nav.css';
 import {NavLink} from 'react-router-dom';
 import o from './icon/o/0White.png'
@@ -63,9 +64,9 @@ const Navbar =(props)=>{
       })
       
       return (
-        <React.Fragment>
+        <BrowserRouter>
 
-        <div className="Navbar2 navbar">
+        <div className="Appbar">
             {logoImg ? <img alt="logo" src={props.logoImg}/> :""}
             {logoTxt ? <span style={displaytxt}>{props.logoTxt}</span> : ""}
         </div>
@@ -73,7 +74,7 @@ const Navbar =(props)=>{
             <img alt="nav" src={triggerIcon}/>
         </div>
         
-        <div className ="Navbar navbar">
+        <div className ="Navbar">
         {value.map(u => (
                 <NavLink
 
@@ -93,8 +94,16 @@ const Navbar =(props)=>{
                 </NavLink>
             ))}
         </div>
+        <br/>
+        <br/>
+        <br/>
+        <Switch>
+            {value.map(u => (
+              <Route exact path={u[0]} component={u[2]}/>
+            ))}
+        </Switch>
 
-        </React.Fragment>
+        </BrowserRouter>
      )
 }
 

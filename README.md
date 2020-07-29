@@ -2,6 +2,12 @@
 
 Create your react app menu bar more easily with ```create-react-nav```
 
+## Why ```create-react-nav``` 
+1. You don't need extra dependencies like react-router-dom.
+2. You don't need to write extra code.
+3. Getting more comfort with the navigation system
+4. Super easy to maintain.
+
 ## Installation
 
 Use the package manager [npm](https://www.npmjs.com/) to install create-react-nav.
@@ -21,8 +27,8 @@ import Navbar from 'create-react-nav/nav/...NAV_NAME...';
 
 ```javascript
 const routes = [
-  [ "...ROUTER_PATH..." , "...PAGE_NAME..." ],
-  [ "...ROUTER_PATH..." , "...PAGE_NAME..." ]
+  [ "...ROUTER_PATH..." , "...PAGE_NAME..." , ...COMPONENT_NAME... ],
+  [ "...ROUTER_PATH..." , "...PAGE_NAME..." , ...COMPONENT_NAME... ]
 ];
 
 <Navbar links={routes}/>
@@ -60,7 +66,7 @@ const routes = [
 
 | Api | Type | Description |
 |-------|-----------| ---------------------|
-| links | Array of multiple Array | Required two properties,first one is the link of file path and the second one is the title for the page  |
+| links | Array of multiple Array | Required three properties,first one is the link of file path, second one is the title for the page and thired one is the component |
 | triggerIcon | String | Icon of navigaton bar trigger |
 | logoImg | String | Address of you logo |
 | logoTxt | String | Text logo this basically refers your website name |
@@ -70,28 +76,43 @@ const routes = [
 
 | Class Name | Description |
 |-------|-----------|
-| .navbar | Style of the navigation bar |
+| .Navbar | Style of the navigation bar |
+| .Appbar | Style of the app bar in mobile mode |
 | .NavItems | Style of all the  links |
 | .selected | Style Of the active navigation link |
 | .navbar span | Style of Text logo |
+| .selected::after | Style of active page indicator |
+| .NavItems::after | Style of all page indicator (This will be hiden) |
 
->Note : You may have to use !important for most of the style attribute.
+>Note : 
+>1. You may have to use "!important" keyword for most of the style attributes.
+>2. To change the style for mobile screen use max-width to 700px.
 
->Note : To change the style Of the active navigation link for mobile screen use the following code
+
+## Example (CSS)
+
 ```css
+.Navbar{
+  background-color: white !important;
+}
+
+.NavItems::after{
+  background-color: red !important;
+}
+
 @media only screen and (max-width: 700px){
   .selected{
-    .....
+    color : white !important;
+    background-color: red !important
   }
 }
 ```
 
 
-## Example
+## Example (JSX)
 
 ```javascript
 import Reactfrom 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Home from './files/home';
 import About from './files/about';
 import Navbar from 'create-react-nav/nav/navSnack';
@@ -99,18 +120,12 @@ import Navbar from 'create-react-nav/nav/navSnack';
 const App=()=>{
 
   const routes = [
-      ["/","Home"],
-      ["/about","About"]
+      ["/", "Home", Home],
+      ["/about", "About", About]
     ]
 
 return (
-  <BrowserRouter>
-      <Navbar logoTxt="hello" links={routes}/>
-      <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route path="/about" component={About}/>
-      </Switch>
-  </BrowserRouter>
+    <Navbar logoTxt="hello" links={routes}/>
  );
 }
 

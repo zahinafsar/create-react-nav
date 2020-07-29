@@ -1,7 +1,9 @@
 import React from 'react';
 import './app.css';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Navbar from './components/navSnack'
+import Home from './home'
+import Contact from './contact'
 import o from './icon/o/0White.png'
 import ob from './icon/o/0Black.png'
 import _ from './icon/-/-White.png'
@@ -11,117 +13,11 @@ import _b from './icon/-/-Black.png'
 
 const App=()=>{
     const r = [
-      ["/","Home"],
-      ["/about","About"],
-      ["/skills","Skills"],
-      ["/project","Projects"],
-      ["/contact","Contact"]
+      ["/","Home", Home],
+      ["/contact","Contact", Contact]
     ]
 return (
-<Router>
     <Navbar logoTxt="zahin" triggerIcon={_} links={r}/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksserrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <img src={o}/>
-    <img src={ob}/>
-    <img src={_}/>
-    <img src={_b}/>
-
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-    <div>sdkfcghksugngl</div><br/>
-	</Router>
  );
 }
 

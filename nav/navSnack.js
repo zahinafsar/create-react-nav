@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './nav.css';
 import { NavLink } from 'react-router-dom';
 import o from './icon/o/0White.png';
@@ -65,10 +66,10 @@ const Navbar = props => {
   });
   return (
     /*#__PURE__*/
-    React.createElement(React.Fragment, null,
+    React.createElement(BrowserRouter, null,
     /*#__PURE__*/
     React.createElement("div", {
-      className: "Navbar2 navbar"
+      className: "Appbar"
     }, logoImg ?
     /*#__PURE__*/
     React.createElement("img", {
@@ -91,7 +92,7 @@ const Navbar = props => {
     })),
     /*#__PURE__*/
     React.createElement("div", {
-      className: "Navbar navbar"
+      className: "Navbar"
     }, value.map(u =>
     /*#__PURE__*/
     React.createElement(NavLink, {
@@ -101,7 +102,21 @@ const Navbar = props => {
       className: "NavItems",
       exact: true,
       to: u[0]
-    }, u[1]))))
+    }, u[1]))),
+    /*#__PURE__*/
+    React.createElement("br", null),
+    /*#__PURE__*/
+    React.createElement("br", null),
+    /*#__PURE__*/
+    React.createElement("br", null),
+    /*#__PURE__*/
+    React.createElement(Switch, null, value.map(u =>
+    /*#__PURE__*/
+    React.createElement(Route, {
+      exact: true,
+      path: u[0],
+      component: u[2]
+    }))))
   );
 };
 
