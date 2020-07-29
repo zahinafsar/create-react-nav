@@ -112,20 +112,20 @@ const routes = [
 ## Example (JSX)
 
 ```javascript
-import Reactfrom 'react';
+import React from 'react';
 import Home from './files/home';
 import About from './files/about';
 import Navbar from 'create-react-nav/nav/navSnack';
 
 const App=()=>{
 
-  const routes = [
+  const links = [
       ["/", "Home", Home],
       ["/about", "About", About]
     ]
 
 return (
-    <Navbar logoTxt="hello" links={routes}/>
+    <Navbar logoTxt="hello" routes={links}/>
  );
 }
 

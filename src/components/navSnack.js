@@ -10,7 +10,7 @@ import lb from './icon/-/-Black.png'
 const Navbar =(props)=>{
 
       var trig = true;
-      const value = props.links;
+      const value = props.routes;
       var displaytxt;
       var triggerIcon;
       var logoImg = false;
@@ -99,7 +99,7 @@ const Navbar =(props)=>{
         <br/>
         <Switch>
             {value.map(u => (
-              <Route exact path={u[0]} component={u[2]}/>
+              <Route key={u[1]} exact path={u[0]} component={u[2]}/>
             ))}
         </Switch>
 
