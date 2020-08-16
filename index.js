@@ -1,7 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import './nav.css';
-import { NavLink } from 'react-router-dom';
 import o from './icon/o/0White.png';
 import ob from './icon/o/0Black.png';
 import l from './icon/-/-White.png';
@@ -64,6 +63,11 @@ const Navbar = props => {
       navWidth.style.left = "-100%";
     }
   });
+
+  const page = () => {
+    window.location.href = window.location.origin;
+  };
+
   return (
     /*#__PURE__*/
     React.createElement(BrowserRouter, null,
@@ -73,11 +77,13 @@ const Navbar = props => {
     }, logoImg ?
     /*#__PURE__*/
     React.createElement("img", {
+      onClick: page,
       alt: "logo",
       src: props.logoImg
     }) : "", logoTxt ?
     /*#__PURE__*/
     React.createElement("span", {
+      onClick: page,
       style: displaytxt
     }, props.logoTxt) : ""),
     /*#__PURE__*/
@@ -104,11 +110,12 @@ const Navbar = props => {
       to: u[0]
     }, u[1]))),
     /*#__PURE__*/
-    React.createElement("br", null),
-    /*#__PURE__*/
-    React.createElement("br", null),
-    /*#__PURE__*/
-    React.createElement("br", null),
+    React.createElement("div", {
+      style: {
+        width: "100%",
+        height: "50px"
+      }
+    }),
     /*#__PURE__*/
     React.createElement(Switch, null, value.map(u =>
     /*#__PURE__*/

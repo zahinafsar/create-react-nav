@@ -1,6 +1,6 @@
 {
   "name": "create-react-nav",
-  "version": "2.4.4",
+  "version": "2.5.6",
   "private": false,
   "babel": {
     "presets": [
@@ -8,7 +8,6 @@
     ]
   },
   "dependencies": {
-    "react": "^16.9.0",
     "react-router-dom": "^5.1.2"
   },
   "scripts": {
@@ -16,7 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "ready": "rm -rf nav && mkdir nav &&  babel src/components -d nav --copy-files"
+    "ready": "rm index.js && babel src/components/index.js -d ./ --copy-files"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,6 +33,7 @@
     ]
   },
   "devDependencies": {
+    "react": "^16.9.0",
     "@babel/cli": "^7.8.4",
     "@babel/preset-react": "^7.9.4",
     "react-dom": "^16.9.0",

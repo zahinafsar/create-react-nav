@@ -21,17 +21,17 @@ npm install create-react-nav
 ### Step-1 (Import the Library)
 
 ```javascript
-import Navbar from 'create-react-nav/nav/...NAV_NAME...';
+import Navbar from 'create-react-nav';
 ```
 ### Step-2 (Use the Component)
 
 ```javascript
-const routes = [
+const links = [
   [ "...ROUTER_PATH..." , "...PAGE_NAME..." , ...COMPONENT_NAME... ],
   [ "...ROUTER_PATH..." , "...PAGE_NAME..." , ...COMPONENT_NAME... ]
 ];
 
-<Navbar links={routes}/>
+<Navbar routes={links}/>
 ```
 ## Basic Configuration (optional)
 
@@ -39,12 +39,12 @@ const routes = [
 ####This is the button which works as a trigger to open hidden navigation bar when you are using mobile or smaller devices.
 
 ```javascript
-<Navbar triggerIcon="blackCircle" links={routes}/>
+<Navbar triggerIcon="blackCircle" routes={links}/>
 ```
 ### Some integrated Trigger Icon
 
  * whiteCircle
- * BlackCircle
+ * blackCircle
  * whiteLine
  * blackLine
 
@@ -54,22 +54,22 @@ const routes = [
 ##### This is your app logo which will appear on the top of the navigation bar
 
 ```javascript
-<Navbar logoImg="...SOURCE_PATH_OF_YOUR_LOGO..." links={routes}/>
+<Navbar logoImg="...SOURCE_PATH_OF_YOUR_LOGO..." routes={links}/>
 ```
 ### Add Text Logo
 ##### This is your app name which will appear on the top of the navigation bar
 
 ```javascript
-<Navbar logoTxt="...USE_ANY_TEXT_AS_LOGO..." links={routes}/>
+<Navbar logoTxt="...USE_ANY_TEXT_AS_LOGO..." routes={links}/>
 ```
 ## Api
 
 | Api | Type | Description |
 |-------|-----------| ---------------------|
-| links | Array of multiple Array | Required three properties,first one is the link of file path, second one is the title for the page and thired one is the component |
-| triggerIcon | String | Icon of navigaton bar trigger |
-| logoImg | String | Address of you logo |
-| logoTxt | String | Text logo this basically refers your website name |
+| routes | Array of multiple Arrays | Required three properties first one is the route path, second one is the title for the page and third one is the component |
+| triggerIcon | String | trigger icon for the navigaton bar (mobile device) |
+| logoImg | String | Source link of your logo |
+| logoTxt | String | Text logo which basically refers your website name |
 
 
 ## Styling (optional)
@@ -79,11 +79,14 @@ const routes = [
 |-------|-----------|
 | .Navbar | Style of the navigation bar |
 | .Appbar | Style of the app bar in mobile mode |
-| .NavItems | Style of all the  links |
-| .selected | Style Of the active navigation link |
-| .navbar span | Style of Text logo |
-| .selected::after | Style of active page indicator |
-| .NavItems::after | Style of all page indicator (This will be hiden) |
+|  a.NavItems | Style of all the  links (Don't need to use '!important') |
+|  a.selected | Style Of the active navigation link (Don't need to use '!important') |
+| .Appbar span | Style of Text logo |
+| .selected::after | Style of active page indicator (For Desktop mode) |
+| .NavItems::after | Style of all page indicator |
+
+### How does active class workes in create-react-nav?
+Basically the ".NavItems::after" has 0% of width. When you click on a Nav we add "selected" class and then it's got 100% width and you see the indicator is apearing.
 
 >Note : 
 >1. You may have to use "!important" keyword for most of the style attributes.
@@ -117,7 +120,7 @@ const routes = [
 import React from 'react';
 import Home from './files/home';
 import About from './files/about';
-import Navbar from 'create-react-nav/nav/navSnack';
+import Navbar from 'create-react-nav';
 
 const App=()=>{
 
@@ -134,7 +137,8 @@ return (
 export default App;
 
 ```
->Note : This will not work outside or without the BrowserRouter
-
+>Note : 
+>1. This will not work outside or without the BrowserRouter.
+>2. Place the Navbar component where you want to do page routing.
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

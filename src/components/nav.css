@@ -10,18 +10,14 @@
   justify-content: flex-end;
   box-shadow: 0px 4px 15px #0404047d;
 }
-.Navbar a{
+.Navbar > a{
   position: relative; 
   font-size: 18px;
-  color: white;
   font-family: monospace;
   margin: 20px;
   text-decoration: none;
 }
-.Navbar a:hover{
-  color: white; 
-  transition:.5s;
-}
+
 .NavItems:after {
   position: absolute;
   content: '';
@@ -35,8 +31,14 @@
   background: #18acce;
   transition: .5s;
 }
+.toggleNav{
+  left: -100% !important;
+}
 .selected:after{
   width: 100%;
+}
+.NavItems{
+  color: white;
 }
 .trigger{
   position: fixed;
@@ -52,21 +54,25 @@
   margin-top: auto;
   margin-bottom: auto;
   z-index: 100000000;
+  cursor: pointer;
 }
 .Appbar span{
-  font-size: 35px;
-  position: fixed;
-  left: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  position: relative;
   z-index: 100000000;
   font-weight: bold;
   color: green;
   top:0px;
+  left : 30px;
+  margin: auto;
 }
 .Appbar{
   height: 50px;
   display: flex;
   position: fixed;
   z-index: 9999999;
+  width: 0px;
 }
 @media only screen and (max-width: 700px) {
   .trigger{
@@ -94,7 +100,6 @@
     padding-top: 55px;
     flex-direction: column;
     height:100%;
-    transition: 1s;
     justify-content: flex-start;
   }
   .Appbar img{
