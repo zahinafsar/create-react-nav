@@ -10,7 +10,6 @@
 
 # production
 /build
-README.md
 /public
 /src
 # misc

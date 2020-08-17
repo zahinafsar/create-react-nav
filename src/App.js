@@ -11,8 +11,8 @@ const App = () => {
   ]
   return (
     <div>
-      <Navbar logoTxt="ZAHIN" triggerIcon="blackLine" routes={r} />
-      {/* <Navbar logoImg="https://cdn.freebiesupply.com/images/large/2x/apple-logo-transparent.png" yToggle="true" triggerIcon="blackLine" routes={r} /> */}
+      {/* <Navbar logoTxt="ZAHIN" triggerIcon="blackLine" routes={r} /> */}
+      <Navbar logoImg="https://cdn.freebiesupply.com/images/large/2x/apple-logo-transparent.png" yToggle="true" triggerIcon="blackLine" routes={r} />
     </div>
   );
 }

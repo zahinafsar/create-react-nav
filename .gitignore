@@ -7,10 +7,11 @@
 
 # testing
 /coverage
-
 # production
 /build
-README.md
+nav.css
+/icon
+index.js
 # misc
 .DS_Store
 .env.local
