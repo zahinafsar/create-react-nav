@@ -70,6 +70,7 @@ const links = [
 | triggerIcon | String | trigger icon for the navigaton bar (mobile device) |
 | logoImg | String | Source link of your logo |
 | logoTxt | String | Text logo which basically refers your website name |
+| yToggle | String | boolean as string to toggle the nav by y axis |
 
 
 ## Styling (optional)
@@ -130,7 +131,7 @@ const App=()=>{
     ]
 
 return (
-    <Navbar logoTxt="hello" routes={links}/>
+    <Navbar logoTxt="hello" yToggle="true" routes={links}/>
  );
 }
 

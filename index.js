@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import './nav.css';
 import o from './icon/o/0White.png';
@@ -7,12 +7,19 @@ import l from './icon/-/-White.png';
 import lb from './icon/-/-Black.png';
 
 const Navbar = props => {
+  const mainnav = useRef();
   var trig = true;
   const value = props.routes;
   var displaytxt;
   var triggerIcon;
   var logoImg = false;
   var logoTxt = false;
+  useEffect(() => {
+    if (props.yToggle === "true") {
+      mainnav.current.style.left = "0";
+      window.innerWidth < 700 ? mainnav.current.style.top = "-110%" : mainnav.current.style.top = "0";
+    }
+  });
 
   if (props.triggerIcon === undefined || props.triggerIcon === "whiteCircle") {
     triggerIcon = o;
@@ -39,28 +46,33 @@ const Navbar = props => {
   }
 
   const trigger = () => {
-    var navWidth = document.querySelector(".Navbar");
+    var nav = mainnav.current.style;
 
     if (window.innerWidth < 700) {
+      nav.transition = "1s";
+
       if (trig) {
-        navWidth.style.left = "0";
+        props.yToggle === "true" ? nav.top = "0" : nav.left = "0";
         trig = false;
       } else {
-        navWidth.style.left = "-100%";
+        props.yToggle === "true" ? nav.top = "-110%" : nav.left = "-100%";
         trig = true;
       }
     }
   };
 
   window.addEventListener('resize', () => {
-    var navWidth = document.querySelector(".Navbar");
+    var nav = mainnav.current.style;
+    nav.transition = "none";
 
-    if (navWidth.style.left === "-100%" && window.innerWidth > 700) {
-      navWidth.style.left = "0px";
+    if (trig && window.innerWidth > 700) {
+      props.yToggle === "true" ? nav.top = "0" : nav.left = "0";
+      trig = false;
     }
 
-    if (window.innerWidth < 700 && navWidth.style.left === "0px") {
-      navWidth.style.left = "-100%";
+    if (!trig && window.innerWidth < 700) {
+      props.yToggle === "true" ? nav.top = "-110%" : nav.left = "-100%";
+      trig = true;
     }
   });
 
@@ -98,7 +110,11 @@ const Navbar = props => {
     })),
     /*#__PURE__*/
     React.createElement("div", {
-      className: "Navbar"
+      className: "Navbar",
+      style: props.yToggle === "true" ? {
+        width: "100%"
+      } : {},
+      ref: mainnav
     }, value.map(u =>
     /*#__PURE__*/
     React.createElement(NavLink, {
