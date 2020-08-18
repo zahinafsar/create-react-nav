@@ -16,8 +16,10 @@ const Navbar = props => {
   var logoTxt = false;
   useEffect(() => {
     if (props.yToggle === "true") {
-      mainnav.current.style.left = "0";
-      window.innerWidth < 700 ? mainnav.current.style.top = "-110%" : mainnav.current.style.top = "0";
+      mainnav.current.style.transition = "none";
+      mainnav.current.style.width = "100%";
+      window.innerWidth < 700 ? mainnav.current.style.top = "-110%" : mainnav.current.style.top = "0px";
+      mainnav.current.style.left = "0px";
     }
   });
 
@@ -52,7 +54,7 @@ const Navbar = props => {
       nav.transition = "1s";
 
       if (trig) {
-        props.yToggle === "true" ? nav.top = "0" : nav.left = "0";
+        props.yToggle === "true" ? nav.top = "0px" : nav.left = "0px";
         trig = false;
       } else {
         props.yToggle === "true" ? nav.top = "-110%" : nav.left = "-100%";
@@ -66,7 +68,7 @@ const Navbar = props => {
     nav.transition = "none";
 
     if (trig && window.innerWidth > 700) {
-      props.yToggle === "true" ? nav.top = "0" : nav.left = "0";
+      props.yToggle === "true" ? nav.top = "0px" : nav.left = "0px";
       trig = false;
     }
 
@@ -111,9 +113,6 @@ const Navbar = props => {
     /*#__PURE__*/
     React.createElement("div", {
       className: "Navbar",
-      style: props.yToggle === "true" ? {
-        width: "100%"
-      } : {},
       ref: mainnav
     }, value.map(u =>
     /*#__PURE__*/

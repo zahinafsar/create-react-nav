@@ -23,6 +23,7 @@ const Navbar = (props) => {
       mainnav.current.style.left = "0px";
     }
   })
+
   if (props.triggerIcon === undefined || props.triggerIcon === "whiteCircle") {
     triggerIcon = o;
   } else if (props.triggerIcon === "blackCircle") {
@@ -35,6 +36,7 @@ const Navbar = (props) => {
     triggerIcon = props.triggerIcon;
   }
 
+
   if (props.logoImg !== undefined) {
     logoImg = true;
   }
@@ -42,9 +44,11 @@ const Navbar = (props) => {
     logoTxt = true;
   }
 
+
   if (props.logoTxtStyle !== undefined) {
     displaytxt = props.logoTxtStyle
   }
+
 
   const trigger = () => {
     var nav = mainnav.current.style;
@@ -59,6 +63,7 @@ const Navbar = (props) => {
       }
     }
   }
+
 
   window.addEventListener('resize', () => {
     var nav = mainnav.current.style;
