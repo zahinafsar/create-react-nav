@@ -1,6 +1,6 @@
 {
   "name": "create-react-nav",
-  "version": "2.5.9",
+  "version": "2.6.4",
   "private": false,
   "babel": {
     "presets": [
@@ -39,10 +39,16 @@
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mdzahin/create-react-nav",
+    "directory": "packages/create-react-nav"
+  },
   "keywords": [
     "navigation",
     "menu",
     "react",
+    "javascript",
     "comoponent",
     "nav",
     "menubar"
