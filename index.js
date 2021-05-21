@@ -1,8 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import * as reactRouterDom from 'react-router-dom';
 import './nav.css';
-import o from './icon/o/0White.png';
-import ob from './icon/o/0Black.png';
 import l from './icon/-/-White.png';
 import lb from './icon/-/-Black.png';
 
@@ -23,13 +22,9 @@ const Navbar = props => {
     }
   });
 
-  if (props.triggerIcon === undefined || props.triggerIcon === "whiteCircle") {
-    triggerIcon = o;
-  } else if (props.triggerIcon === "blackCircle") {
-    triggerIcon = ob;
-  } else if (props.triggerIcon === "whiteLine") {
+  if (props.triggerIcon === undefined || props.triggerIcon === "dark") {
     triggerIcon = l;
-  } else if (props.triggerIcon === "blackLine") {
+  } else if (props.triggerIcon === "light") {
     triggerIcon = lb;
   } else {
     triggerIcon = props.triggerIcon;
@@ -51,7 +46,7 @@ const Navbar = props => {
     var nav = mainnav.current.style;
 
     if (window.innerWidth < 700) {
-      nav.transition = "1s";
+      nav.transition = "0.5s";
 
       if (trig) {
         props.yToggle === "true" ? nav.top = "0px" : nav.left = "0px";
@@ -114,7 +109,7 @@ const Navbar = props => {
     React.createElement("div", {
       className: "Navbar",
       ref: mainnav
-    }, value.map(u =>
+    }, value.map(u => u[1] ?
     /*#__PURE__*/
     React.createElement(NavLink, {
       onClick: trigger,
@@ -123,7 +118,7 @@ const Navbar = props => {
       className: "NavItems",
       exact: true,
       to: u[0]
-    }, u[1]))),
+    }, u[1]) : '')),
     /*#__PURE__*/
     React.createElement("div", {
       style: {
@@ -143,4 +138,5 @@ const Navbar = props => {
   );
 };
 
+export const navigation = reactRouterDom;
 export default Navbar;

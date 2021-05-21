@@ -1,6 +1,6 @@
 {
   "name": "create-react-nav",
-  "version": "2.6.4",
+  "version": "2.6.5",
   "private": false,
   "babel": {
     "presets": [
@@ -15,7 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "ready": "rm index.js && babel src/components/index.js -d ./ --copy-files"
+    "ready": "babel src/components/index.js -d ./ --copy-files"
   },
   "eslintConfig": {
     "extends": "react-app"

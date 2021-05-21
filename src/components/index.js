@@ -1,8 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import * as reactRouterDom from 'react-router-dom';
 import './nav.css';
-import o from './icon/o/0White.png'
-import ob from './icon/o/0Black.png'
 import l from './icon/-/-White.png'
 import lb from './icon/-/-Black.png'
 
@@ -24,13 +23,9 @@ const Navbar = (props) => {
     }
   })
 
-  if (props.triggerIcon === undefined || props.triggerIcon === "whiteCircle") {
-    triggerIcon = o;
-  } else if (props.triggerIcon === "blackCircle") {
-    triggerIcon = ob;
-  } else if (props.triggerIcon === "whiteLine") {
+  if (props.triggerIcon === undefined || props.triggerIcon === "dark") {
     triggerIcon = l;
-  } else if (props.triggerIcon === "blackLine") {
+  } else if (props.triggerIcon === "light") {
     triggerIcon = lb;
   } else {
     triggerIcon = props.triggerIcon;
@@ -53,7 +48,7 @@ const Navbar = (props) => {
   const trigger = () => {
     var nav = mainnav.current.style;
     if (window.innerWidth < 700) {
-      nav.transition = "1s";
+      nav.transition = "0.5s";
       if (trig) {
         props.yToggle === "true" ? nav.top = "0px" : nav.left = "0px";
         trig = false;
@@ -89,12 +84,13 @@ const Navbar = (props) => {
         {logoImg ? <img onClick={page} alt="logo" src={props.logoImg} /> : ""}
         {logoTxt ? <span onClick={page} style={displaytxt}>{props.logoTxt}</span> : ""}
       </div>
+
       <div onClick={trigger} className="trigger">
         <img alt="nav" src={triggerIcon} />
       </div>
 
       <div className="Navbar" ref={mainnav}>
-        {value.map(u => (
+        {value.map(u => u[1] ? (
           <NavLink
 
             onClick={trigger}
@@ -111,7 +107,7 @@ const Navbar = (props) => {
           >
             {u[1]}
           </NavLink>
-        ))}
+        ):'')}
       </div>
       <div style={{ width: "100%", height: "50px" }}></div>
       <Switch>
@@ -123,5 +119,5 @@ const Navbar = (props) => {
     </BrowserRouter>
   )
 }
-
+export const navigation = reactRouterDom;
 export default Navbar;

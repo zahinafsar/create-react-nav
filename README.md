@@ -11,8 +11,9 @@ Create your react app menu bar more easily with `create-react-nav`
 
 ## Limitation of `create-react-nav`
 
-1. It doesn't support subnavigation.
+1. It doesn't have subnavigation system.
 2. It doesn't have NEXT.JS support.
+3. It doesn't have Gatsby support.
 
 [example:](https://zahin.netlify.app/)
 
@@ -42,23 +43,22 @@ const links = [
 
 <Navbar routes={links}/>
 ```
+> Note : Leave the PAGE_NAME empty not to add the route to navbar
 
 ## Basic Configuration (optional)
 
 ### Add Trigger Icon
 
-####This is the button which works as a trigger to open hidden navigation bar when you are using mobile or smaller devices.
+#### This is the button which works as a trigger to open hidden navigation bar when you are using mobile or smaller devices.
 
 ```javascript
-<Navbar triggerIcon="blackCircle" routes={links} />
+<Navbar triggerIcon="light" routes={links} />
 ```
 
 ### Some integrated Trigger Icon
 
-- whiteCircle
-- blackCircle
-- whiteLine
-- blackLine
+- dark
+- light
 
 > Note : You Can Use Your Own Custom Icon By Adding The Source
 
@@ -129,7 +129,18 @@ Basically the ".NavItems::after" has 0% of width. When you click on a Nav we add
   }
 }
 ```
+## Get access of react-router-dom
 
+### create-react-nav
+```javascript
+import { navigation } from "create-react-nav";
+const history = navigation.useHistory()
+```
+### react-router-dom
+```javascript
+import { useHistory } from "react-router-dom";
+const history = useHistory()
+```
 ## Example (JSX)
 
 ```javascript

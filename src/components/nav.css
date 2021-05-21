@@ -8,7 +8,7 @@
   background: #292c2f;
   align-items: center;
   justify-content: flex-end;
-  box-shadow: 0px 4px 15px #0404047d;
+  box-shadow: 0px 0px 20px #8a8a8a4a;
 }
 .Navbar > a{
   position: relative; 
@@ -92,7 +92,7 @@
     top: 0;
     background: #292c2f;
     justify-content: center;
-    box-shadow: 0px 4px 15px #0404047d;
+    box-shadow: 0px 0px 20px #8a8a8a4a;
   }
   .Appbar img{
     margin-left: 0px;
